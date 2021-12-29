@@ -13,6 +13,39 @@
     },
     "name": {
       "type": ["null", "string"]
+    },
+    "start_date": {
+      "type": ["null", "string"]
+    },
+    "end_date": {
+      "type": ["null", "string"]
+    },
+    "comment": {
+      "type": ["null", "string"]
+    },
+    "pr_state_id": {
+      "type": ["null", "integer"]
+    },
+    "pr_project_type_id": {
+      "type": ["null", "integer"]
+    },
+    "contact_id": {
+      "type": ["null", "integer"]
+    },
+    "contact_sub_id": {
+      "type": ["null", "integer"]
+    },
+    "pr_invoice_type_id": {
+      "type": ["null", "integer"]
+    },
+    "pr_invoice_type_amount": {
+      "type": ["null", "string"]
+    },
+    "pr_budget_type_id": {
+      "type": ["null", "integer"]
+    },
+    "pr_budget_type_amount": {
+      "type": ["null", "string"]
     }
   }
 }
