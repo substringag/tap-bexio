@@ -20,7 +20,7 @@ class bexioStream(RESTStream):
     url_base = "https://api.bexio.com/2.0/"
 
     records_jsonpath = "$[*]"  # Or override `parse_response`.
-    next_page_token_jsonpath = "$.next_page"  # Or override `get_next_page_token`.
+    next_page_token_jsonpath = "[]"  # Or override `get_next_page_token`.
 
     @property
     def authenticator(self) -> BearerTokenAuthenticator:
@@ -43,17 +43,14 @@ class bexioStream(RESTStream):
         self, response: requests.Response, previous_token: Optional[Any]
     ) -> Optional[Any]:
         """Return a token for identifying next page or None if no more pages."""
-        # TODO: If pagination is required, return a token which can be used to get the
-        #       next page. If this is the final page, return "None" to end the
-        #       pagination loop.
-        if self.next_page_token_jsonpath:
-            all_matches = extract_jsonpath(
-                self.next_page_token_jsonpath, response.json()
-            )
-            first_match = next(iter(all_matches), None)
-            next_page_token = first_match
+
+        if (previous_token == None):
+            previous_token = 0
+
+        if (response.headers.get("content-length") == "2"): 
+            next_page_token = None
         else:
-            next_page_token = response.headers.get("X-Next-Page", None)
+            next_page_token = previous_token + 500
 
         return next_page_token
 
@@ -63,7 +60,8 @@ class bexioStream(RESTStream):
         """Return a dictionary of values to be used in URL parameterization."""
         params: dict = {}
         if next_page_token:
-            params["page"] = next_page_token
+            params["offset"] = next_page_token
+            params["limit"] = 500
         if self.replication_key:
             params["sort"] = "asc"
             params["order_by"] = self.replication_key

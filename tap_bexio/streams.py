@@ -7,20 +7,45 @@ from singer_sdk import typing as th  # JSON Schema typing helpers
 
 from tap_bexio.client import bexioStream
 
-# TODO: Delete this is if not using json files for schema definition
 SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
-# TODO: - Override `UsersStream` and `GroupsStream` with your own stream definition.
-#       - Copy-paste as many times as needed to create multiple stream types.
-
 
 class ProjectsStream(bexioStream):
-    """Projectsstream."""
+    """Projects stream."""
     name = "projects"
     path = "pr_project"
     data_key = "project"
     primary_keys = ["id"]
     replication_method = "INCREMENTAL"
     replication_key = "id"
-    schema_filepath = SCHEMAS_DIR / "projects.json"
+    schema_filepath = SCHEMAS_DIR / "pr_project.json"
 
+class ProjectStatesStream(bexioStream):
+    """Projects states stream."""
+    name = "project_states"
+    path = "pr_project_state"
+    data_key = "project_state"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "pr_project_state.json"
+
+class ProjectTypesStream(bexioStream):
+    """Project Types stream."""
+    name = "project_types"
+    path = "pr_project_type"
+    data_key = "project_type"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "pr_project_type.json"
+
+class TimesheetsStream(bexioStream):
+    """Timesheets stream."""
+    name = "timesheets"
+    path = "timesheet"
+    data_key = "timesheet"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "timesheet.json"
 

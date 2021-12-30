@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": ["integer"]
+    },
+    "user_id": {
+      "type": ["null", "integer"]
+    },
+    "status_id": {
+      "type": ["null", "integer"]
+    },
+    "client_service_id": {
+      "type": ["null", "integer"]
+    },
+    "text": {
+      "type": ["null", "string"]
+    },
+    "allowable_bill": {
+      "type": ["null", "string"]
+    },
+    "charge": {
+      "type": ["null", "string"]
+    },
+    "contact_id": {
+      "type": ["null", "integer"]
+    },
+    "sub_contact_id": {
+      "type": ["null", "integer"]
+    },
+    "pr_project_id": {
+      "type": ["null", "integer"]
+    },
+    "pr_package_id": {
+      "type": ["null", "integer"]
+    },
+    "pr_milestone_id": {
+      "type": ["null", "integer"]
+    },
+    "travel_time": {
+      "type": ["null", "string"]
+    },
+    "travel_charge": {
+      "type": ["null", "string"]
+    },
+    "travel_distance": {
+      "type": ["null", "integer"]
+    },
+    "estimated_time": {
+      "type": ["null", "string"]
+    },
+    "date": {
+      "type": ["null", "string"]
+    },
+    "duration": {
+      "type": ["null", "string"]
+    },
+    "running": {
+      "type": ["null", "boolean"]
+    }
+  }
+}

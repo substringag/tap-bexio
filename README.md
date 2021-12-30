@@ -9,6 +9,9 @@ Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
 ## Currently supported data endpoints
 
 - pr_project
+- pr_project_state
+- pr_project_type
+- timesheet
 
 ## Installation
 
