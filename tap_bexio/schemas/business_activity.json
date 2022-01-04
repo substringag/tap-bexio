@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": ["integer"]
+    },
+    "name": {
+      "type": ["null", "string"]
+    },
+    "default_is_billable": {
+      "type": ["null", "boolean"]
+    },
+    "default_price_per_hour": {
+      "type": ["null", "string"]
+    },
+    "account_id": {
+      "type": ["null", "integer"]
+    }
+  }
+}
