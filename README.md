@@ -2,7 +2,7 @@
 
 `tap-bexio` is a Singer tap for bexio.
 
-This is still a super early version with some spaghetti code, only a couple of data endpoints implemented and probably still a lot of bugs. Happy for people testing it and helping us move this Tap forward.
+> :warning: This is still a super early version with some spaghetti code, only a couple of data endpoints implemented and probably still a lot of bugs. Happy for people testing it and helping us move this Tap forward.
 
 Bexio API Documentation: https://docs.bexio.com/
 
