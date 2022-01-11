@@ -2,17 +2,32 @@
 
 `tap-bexio` is a Singer tap for bexio.
 
+This is still a super early version with some spaghetti code, only a couple of data endpoints implemented and probably still a lot of bugs. Happy for people testing it and helping us move this Tap forward.
+
 Bexio API Documentation: https://docs.bexio.com/
 
 Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
 
 ## Currently supported data endpoints
 
-- business_activities
-- pr_project
-- pr_project_state
-- pr_project_type
-- timesheet
+* [ ] Contacts
+* [ ] Sales Order Management
+* [ ] Purchase
+* [ ] Accounting
+* [ ] Banking
+* [ ] Items & Products
+* [x] Projects & Time Tracking
+* [ ] Files
+* [ ] Other
+    * [ ] Company Profile
+    * [ ] Countries
+    * [ ] Languages
+    * [ ] Notes
+    * [ ] Payment Types
+    * [ ] Permissions
+    * [ ] Tasks
+    * [ ] Units
+    * [ ] User Management
 
 ## Installation
 
