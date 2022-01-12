@@ -15,10 +15,10 @@
       "type": ["null", "string"]
     },
     "start_date": {
-      "type": ["null", "string"]
+      "type": ["null", "date-time"]
     },
     "end_date": {
-      "type": ["null", "string"]
+      "type": ["null", "date-time"]
     },
     "comment": {
       "type": ["null", "string"]
@@ -39,13 +39,13 @@
       "type": ["null", "integer"]
     },
     "pr_invoice_type_amount": {
-      "type": ["null", "string"]
+      "type": ["null", "number"]
     },
     "pr_budget_type_id": {
       "type": ["null", "integer"]
     },
     "pr_budget_type_amount": {
-      "type": ["null", "string"]
+      "type": ["null", "number"]
     }
   }
 }

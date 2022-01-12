@@ -18,7 +18,7 @@
       "type": ["null", "string"]
     },
     "allowable_bill": {
-      "type": ["null", "string"]
+      "type": ["null", "boolean"]
     },
     "charge": {
       "type": ["null", "string"]
@@ -51,7 +51,7 @@
       "type": ["null", "string"]
     },
     "date": {
-      "type": ["null", "string"]
+      "type": ["null", "date-time"]
     },
     "duration": {
       "type": ["null", "string"]
