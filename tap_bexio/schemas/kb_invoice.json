@@ -50,6 +50,15 @@
       "total_taxes": {
         "type": "string"
       },
+      "total_received_payments": {
+        "type": "string"
+      },
+      "total_credit_vouchers": {
+        "type": "string"
+      },
+      "total_remaining_payments": {
+        "type": "string"
+      },
       "total": {
         "type": "string"
       },
@@ -68,20 +77,17 @@
       "is_valid_from": {
         "type": "date-time"
       },
-      "is_valid_until": {
+      "is_valid_to": {
         "type": "date-time"
       },
       "contact_address": {
         "type": "string"
       },
-      "delivery_address_type": {
-        "type": "integer"
-      },
-      "delivery_address": {
-        "type": "string"
-      },
       "kb_item_status_id": {
         "type": "integer"
+      },
+      "reference": {
+        "type": ["null", "string"]
       },
       "api_reference": {
         "type": ["null", "string"]
@@ -89,14 +95,14 @@
       "viewed_by_client_at": {
         "type": ["null", "string"]
       },
-      "kb_terms_of_payment_template_id": {
-        "type": ["null", "integer"]
-      },
-      "show_total": {
-        "type": "boolean"
-      },
       "updated_at": {
         "type": "date-time"
+      },
+      "esr_id": {
+        "type": "integer"
+      },
+      "qr_invoice_id": {
+        "type": "integer"
       },
       "template_slug": {
         "type": ["null", "string"]

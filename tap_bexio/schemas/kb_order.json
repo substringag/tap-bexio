@@ -68,9 +68,6 @@
       "is_valid_from": {
         "type": "date-time"
       },
-      "is_valid_until": {
-        "type": "date-time"
-      },
       "contact_address": {
         "type": "string"
       },
@@ -83,17 +80,14 @@
       "kb_item_status_id": {
         "type": "integer"
       },
+      "is_recurring": {
+        "type": "boolean"
+      },
       "api_reference": {
         "type": ["null", "string"]
       },
       "viewed_by_client_at": {
         "type": ["null", "string"]
-      },
-      "kb_terms_of_payment_template_id": {
-        "type": ["null", "integer"]
-      },
-      "show_total": {
-        "type": "boolean"
       },
       "updated_at": {
         "type": "date-time"
