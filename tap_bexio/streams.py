@@ -69,3 +69,32 @@ class OfferStream(bexioStream):
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "kb_offer.json"
 
+class OrderStream(bexioStream):
+    """Order stream."""
+    name = "order"
+    path = "2.0/kb_order"
+    data_key = "order "
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "kb_order.json"
+
+class InvoiceStream(bexioStream):
+    """Invoice stream."""
+    name = "kb_invoice"
+    path = "2.0/kb_invoice"
+    data_key = "kb_invoice"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "kb_invoice.json"
+
+class AccountsStream(bexioStream):
+    """Accounts stream."""
+    name = "accounts"
+    path = "2.0/accounts"
+    data_key = "accounts"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "accounts.json"

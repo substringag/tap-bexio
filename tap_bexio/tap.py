@@ -12,6 +12,9 @@ from tap_bexio.streams import (
     ProjectsStream,
     TimesheetsStream,
     OfferStream,
+    OrderStream,
+    InvoiceStream,
+    AccountsStream,
     bexioStream,
 )
 
@@ -21,9 +24,11 @@ STREAM_TYPES = [
     ProjectStatesStream,
     ProjectTypesStream,
     TimesheetsStream,
-    OfferStream
+    OfferStream,
+    OrderStream,
+    InvoiceStream,
+    AccountsStream
 ]
-
 
 class Tapbexio(Tap):
     """bexio tap class."""
