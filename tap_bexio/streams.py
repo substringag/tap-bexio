@@ -98,3 +98,13 @@ class AccountsStream(bexioStream):
     replication_method = "INCREMENTAL"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "accounts.json"
+
+class AccountGroupsStream(bexioStream):
+    """Account Groups stream."""
+    name = "account_groups"
+    path = "2.0/account_groups"
+    data_key = "account_groups"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "account_groups.json"

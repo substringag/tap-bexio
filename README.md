@@ -18,6 +18,7 @@ Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
 * [ ] Purchase
 * [ ] Accounting
     * [x] Accounts (accounts)
+    * [x] Account Groups (account_groups)
 * [ ] Banking
 * [ ] Items & Products
 * [x] Projects & Time Tracking
