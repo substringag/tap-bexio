@@ -11,6 +11,7 @@ from tap_bexio.streams import (
     ProjectStatesStream,
     ProjectsStream,
     TimesheetsStream,
+    OfferStream,
     bexioStream,
 )
 
@@ -19,7 +20,8 @@ STREAM_TYPES = [
     ProjectsStream,
     ProjectStatesStream,
     ProjectTypesStream,
-    TimesheetsStream
+    TimesheetsStream,
+    OfferStream
 ]
 
 
