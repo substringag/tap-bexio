@@ -12,7 +12,7 @@ SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 class BusinessActivityStream(bexioStream):
     """Business Activity stream."""
     name = "business_activities"
-    path = "client_service"
+    path = "2.0/client_service"
     data_key = "business_activity"
     primary_keys = ["id"]
     replication_method = "INCREMENTAL"
@@ -22,7 +22,7 @@ class BusinessActivityStream(bexioStream):
 class ProjectsStream(bexioStream):
     """Projects stream."""
     name = "projects"
-    path = "pr_project"
+    path = "2.0/pr_project"
     data_key = "project"
     primary_keys = ["id"]
     replication_method = "INCREMENTAL"
@@ -32,7 +32,7 @@ class ProjectsStream(bexioStream):
 class ProjectStatesStream(bexioStream):
     """Projects states stream."""
     name = "project_states"
-    path = "pr_project_state"
+    path = "2.0/pr_project_state"
     data_key = "project_state"
     primary_keys = ["id"]
     replication_method = "INCREMENTAL"
@@ -42,7 +42,7 @@ class ProjectStatesStream(bexioStream):
 class ProjectTypesStream(bexioStream):
     """Project Types stream."""
     name = "project_types"
-    path = "pr_project_type"
+    path = "2.0/pr_project_type"
     data_key = "project_type"
     primary_keys = ["id"]
     replication_method = "INCREMENTAL"
@@ -52,10 +52,59 @@ class ProjectTypesStream(bexioStream):
 class TimesheetsStream(bexioStream):
     """Timesheets stream."""
     name = "timesheets"
-    path = "timesheet"
+    path = "2.0/timesheet"
     data_key = "timesheet"
     primary_keys = ["id"]
     replication_method = "INCREMENTAL"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "timesheet.json"
 
+class OfferStream(bexioStream):
+    """Offer stream."""
+    name = "offer"
+    path = "2.0/kb_offer"
+    data_key = "offer "
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "kb_offer.json"
+
+class OrderStream(bexioStream):
+    """Order stream."""
+    name = "order"
+    path = "2.0/kb_order"
+    data_key = "order "
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "kb_order.json"
+
+class InvoiceStream(bexioStream):
+    """Invoice stream."""
+    name = "kb_invoice"
+    path = "2.0/kb_invoice"
+    data_key = "kb_invoice"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "kb_invoice.json"
+
+class AccountsStream(bexioStream):
+    """Accounts stream."""
+    name = "accounts"
+    path = "2.0/accounts"
+    data_key = "accounts"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "accounts.json"
+
+class AccountGroupsStream(bexioStream):
+    """Account Groups stream."""
+    name = "account_groups"
+    path = "2.0/account_groups"
+    data_key = "account_groups"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "account_groups.json"

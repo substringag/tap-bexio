@@ -3,6 +3,7 @@
 import requests
 from pathlib import Path
 from typing import Any, Dict, Optional, Union, List, Iterable
+import logging
 
 from memoization import cached
 
@@ -17,7 +18,7 @@ SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 class bexioStream(RESTStream):
     """bexio stream class."""
 
-    url_base = "https://api.bexio.com/2.0/"
+    url_base = "https://api.bexio.com/"
 
     records_jsonpath = "$[*]"  # Or override `parse_response`.
     next_page_token_jsonpath = "[]"  # Or override `get_next_page_token`.
@@ -80,6 +81,7 @@ class bexioStream(RESTStream):
     def parse_response(self, response: requests.Response) -> Iterable[dict]:
         """Parse the response and return an iterator of result rows."""
         # TODO: Parse response body and return a set of records.
+        logging.info(response)
         yield from extract_jsonpath(self.records_jsonpath, input=response.json())
 
     def post_process(self, row: dict, context: Optional[dict]) -> dict:

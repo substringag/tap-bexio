@@ -1,0 +1,120 @@
+{
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "document_nr": {
+        "type": "string"
+      },
+      "title": {
+        "type": ["null", "string"]
+      },
+      "contact_id": {
+        "type": ["null", "integer"]
+      },
+      "contact_sub_id": {
+        "type": ["null", "integer"]
+      },
+      "user_id": {
+        "type": "integer"
+      },
+      "project_id": {
+        "type": ["null", "integer"]
+      },
+      "language_id": {
+        "type": "integer"
+      },
+      "bank_account_id": {
+        "type": "integer"
+      },
+      "currency_id": {
+        "type": "integer"
+      },
+      "payment_type_id": {
+        "type": "integer"
+      },
+      "header": {
+        "type": "string"
+      },
+      "footer": {
+        "type": "string"
+      },
+      "total_gross": {
+        "type": "string"
+      },
+      "total_net": {
+        "type": "string"
+      },
+      "total_taxes": {
+        "type": "string"
+      },
+      "total": {
+        "type": "string"
+      },
+      "total_rounding_difference": {
+        "type": "number"
+      },
+      "mwst_type": {
+        "type": "integer"
+      },
+      "mwst_is_net": {
+        "type": "boolean"
+      },
+      "show_position_taxes": {
+        "type": "boolean"
+      },
+      "is_valid_from": {
+        "type": "date-time"
+      },
+      "is_valid_until": {
+        "type": "date-time"
+      },
+      "contact_address": {
+        "type": "string"
+      },
+      "delivery_address_type": {
+        "type": "integer"
+      },
+      "delivery_address": {
+        "type": "string"
+      },
+      "kb_item_status_id": {
+        "type": "integer"
+      },
+      "api_reference": {
+        "type": ["null", "string"]
+      },
+      "viewed_by_client_at": {
+        "type": ["null", "string"]
+      },
+      "kb_terms_of_payment_template_id": {
+        "type": ["null", "integer"]
+      },
+      "show_total": {
+        "type": "boolean"
+      },
+      "updated_at": {
+        "type": "date-time"
+      },
+      "template_slug": {
+        "type": ["null", "string"]
+      },
+      "taxs": {
+        "type": "array",
+        "properties": {
+            "percentage": {
+                "type": "string"
+            },
+            "value": {
+                "type": "string"
+            }
+        }
+      },
+      "network_link": {
+        "type": ["null", "string"]
+      }
+    }
+  }
+  
