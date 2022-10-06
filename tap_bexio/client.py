@@ -12,6 +12,7 @@ from singer_sdk.streams import RESTStream
 from singer_sdk.authenticators import BearerTokenAuthenticator
 
 
+
 SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 
 
@@ -19,6 +20,7 @@ class bexioStream(RESTStream):
     """bexio stream class."""
 
     url_base = "https://api.bexio.com/"
+    item_limit = 1000
 
     records_jsonpath = "$[*]"  # Or override `parse_response`.
     next_page_token_jsonpath = "[]"  # Or override `get_next_page_token`.
@@ -51,7 +53,7 @@ class bexioStream(RESTStream):
         if (response.headers.get("content-length") == "2"): 
             next_page_token = None
         else:
-            next_page_token = previous_token + 500
+            next_page_token = previous_token + self.item_limit
 
         return next_page_token
 
@@ -62,7 +64,7 @@ class bexioStream(RESTStream):
         params: dict = {}
         if next_page_token:
             params["offset"] = next_page_token
-            params["limit"] = 500
+            params["limit"] = self.item_limit
         if self.replication_key:
             params["sort"] = "asc"
             params["order_by"] = self.replication_key
@@ -81,8 +83,8 @@ class bexioStream(RESTStream):
     def parse_response(self, response: requests.Response) -> Iterable[dict]:
         """Parse the response and return an iterator of result rows."""
         # TODO: Parse response body and return a set of records.
-        logging.info(response)
-        yield from extract_jsonpath(self.records_jsonpath, input=response.json())
+        # yield from extract_jsonpath(self.records_jsonpath, input=response.json())
+        return extract_jsonpath(self.records_jsonpath, input=response.json())
 
     def post_process(self, row: dict, context: Optional[dict]) -> dict:
         """As needed, append or transform raw data to match expected structure."""
