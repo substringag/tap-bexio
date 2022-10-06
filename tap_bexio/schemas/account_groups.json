@@ -12,7 +12,7 @@
         "type": "string"
       },
       "parent_fibu_account_group_id": {
-        "type": "integer"
+        "type": ["null", "integer"]
       },
       "is_active": {
         "type": "boolean"
