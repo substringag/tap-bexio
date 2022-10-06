@@ -75,10 +75,12 @@
         "type": "boolean"
       },
       "is_valid_from": {
-        "type": "date-time"
+        "type": "string",
+        "format": "date-time"
       },
       "is_valid_to": {
-        "type": "date-time"
+        "type": "string",
+        "format": "date-time"
       },
       "contact_address": {
         "type": "string"
@@ -96,7 +98,8 @@
         "type": ["null", "string"]
       },
       "updated_at": {
-        "type": "date-time"
+        "type": "string",
+        "format": "date-time"
       },
       "esr_id": {
         "type": "integer"
