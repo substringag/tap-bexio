@@ -9,6 +9,17 @@ from tap_bexio.client import bexioStream
 
 SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 
+
+class ContactGroupStream(bexioStream):
+    """Contact Group stream."""
+    name = "contact_group"
+    path = "2.0/contact_group"
+    data_key = "contact_group"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "contact_group.json"
+
 # this is called "Contact Sectors" in the API Dokumentation, but "contact_branch" in the endpoint. https://docs.bexio.com/legacy/resources/contact_branch/
 class ContactBranchStream(bexioStream):
     """Contact Branch stream."""
