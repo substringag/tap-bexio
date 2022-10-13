@@ -9,6 +9,97 @@ from tap_bexio.client import bexioStream
 
 SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 
+
+class CurrenciesStream(bexioStream):
+    """Currencies stream."""
+    name = "currencies"
+    path = "3.0/currencies"  ##3-er API! there the wording is plural 
+    data_key = "name"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "currencies.json"
+
+
+class SalutationStream(bexioStream):
+    """Salutation stream."""
+    name = "salutation"
+    path = "2.0/salutation"
+    data_key = "salutation"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "salutation.json"
+
+
+class CompanyProfileStream(bexioStream):
+    """Company Profile stream."""
+    name = "company_profile"
+    path = "2.0/company_profile"
+    data_key = "company_profile"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "company_profile.json"
+
+
+
+class TitleStream(bexioStream):
+    """Title stream."""
+    name = "title"
+    path = "2.0/title"
+    data_key = "title"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "title.json"
+
+
+
+class ContactGroupStream(bexioStream):
+    """Contact Group stream."""
+    name = "contact_group"
+    path = "2.0/contact_group"
+    data_key = "contact_group"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "contact_group.json"
+
+# this is called "Contact Sectors" in the API Dokumentation, but "contact_branch" in the endpoint. https://docs.bexio.com/legacy/resources/contact_branch/
+class ContactBranchStream(bexioStream):
+    """Contact Branch stream."""
+    name = "contact_branch"
+    path = "2.0/contact_branch"
+    data_key = "contact_branch"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "contact_branch.json"
+
+
+class ContactTypeStream(bexioStream):
+    """Contact Type stream."""
+    name = "contact_types"
+    path = "2.0/contact_type"
+    data_key = "contact_type"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "contact_type.json"
+
+
+class ContactStream(bexioStream):
+    """Contact stream."""
+    name = "contacts"
+    path = "2.0/contact"
+    data_key = "contact"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "contact.json"
+
+
 class BusinessActivityStream(bexioStream):
     """Business Activity stream."""
     name = "business_activities"
