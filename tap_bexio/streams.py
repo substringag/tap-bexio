@@ -9,6 +9,17 @@ from tap_bexio.client import bexioStream
 
 SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 
+class TitleStream(bexioStream):
+    """Title stream."""
+    name = "title"
+    path = "2.0/title"
+    data_key = "title"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "title.json"
+
+
 
 class ContactGroupStream(bexioStream):
     """Contact Group stream."""
