@@ -10,7 +10,10 @@ Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
 
 ## Currently supported data endpoints
 
-* [ ] Contacts
+* [x] Contacts
+    * [x] Contact Type
+    * [x] Contact Group
+    * [x] Titles
 * [x] Sales Order Management
     * [x] Quotes (kb_offer)
     * [x] Orders (kb_order)
