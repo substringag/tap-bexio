@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+
+      "id": { "type": "integer" },
+      "nr": { "type": ["null", "string"] },
+      "contact_type_id": { "type": ["null", "integer"] },
+      "name_1": { "type": "string" },
+      "name_2": { "type": ["null", "string"] },
+      "salutation_id": { "type": ["null", "integer"] }, 
+      "salutation_form": { "type": ["null", "integer"] }, 
+      "title_id": { "type": ["null", "integer"] }, 
+      "birthday": { "type": ["null", "string"], "format": "date-time" }, 
+      "address": { "type": "string" }, 
+      "postcode": { "type": "string" }, 
+      "city": { "type": "string" }, 
+      "country_id": { "type": ["null", "integer"] }, 
+      "mail": { "type": ["null", "string"] }, 
+      "mail_second": { "type": ["null", "string"] }, 
+      "phone_fixed": { "type": ["null", "string"] }, 
+      "phone_fixed_second": { "type": ["null", "string"] }, 
+      "phone_mobile": { "type": ["null", "string"] }, 
+      "fax": { "type": ["null", "string"] }, 
+      "url": { "type": ["null", "string"] }, 
+      "skype_name": { "type": ["null", "string"] }, 
+      "remarks": { "type": ["null", "string"] }, 
+      "language_id": { "type": ["null", "integer"] }, 
+      "is_lead": { "type": "boolean" }, 
+      "contact_group_ids": { "type": ["null", "string"] }, 
+      "contact_branch_ids": { "type": ["null", "string"] }, 
+      "user_id": { "type": "integer" }, 
+      "owner_id": { "type": "integer" }, 
+      "updated_at": { "type": "string", "format": "date-time" }
+      
+    }
+  }
+  
