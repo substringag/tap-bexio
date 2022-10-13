@@ -3,7 +3,6 @@
 import requests
 from pathlib import Path
 from typing import Any, Dict, Optional, Union, List, Iterable
-import logging
 
 from memoization import cached
 
@@ -83,8 +82,7 @@ class bexioStream(RESTStream):
     def parse_response(self, response: requests.Response) -> Iterable[dict]:
         """Parse the response and return an iterator of result rows."""
         # TODO: Parse response body and return a set of records.
-        # yield from extract_jsonpath(self.records_jsonpath, input=response.json())
-        return extract_jsonpath(self.records_jsonpath, input=response.json())
+        yield from extract_jsonpath(self.records_jsonpath, input=response.json())
 
     def post_process(self, row: dict, context: Optional[dict]) -> dict:
         """As needed, append or transform raw data to match expected structure."""
