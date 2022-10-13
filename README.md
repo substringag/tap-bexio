@@ -4,7 +4,8 @@
 
 > :warning: This is still a super early version with some spaghetti code, only a couple of data endpoints implemented and probably still a lot of bugs. Happy for people testing it and helping us move this Tap forward.
 
-Bexio API Documentation: https://docs.bexio.com/
+Bexio API Documentation: https://docs.bexio.com/ and https://docs.bexio.com/legacy/
+
 
 Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
 

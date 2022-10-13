@@ -9,6 +9,41 @@ from tap_bexio.client import bexioStream
 
 SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 
+
+class CurrenciesStream(bexioStream):
+    """Currencies stream."""
+    name = "currencies"
+    path = "3.0/currencies"  ##3-er API! there the wording is plural 
+    data_key = "name"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "currencies.json"
+
+
+class SalutationStream(bexioStream):
+    """Salutation stream."""
+    name = "salutation"
+    path = "2.0/salutation"
+    data_key = "salutation"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "salutation.json"
+
+
+class CompanyProfileStream(bexioStream):
+    """Company Profile stream."""
+    name = "company_profile"
+    path = "2.0/company_profile"
+    data_key = "company_profile"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "company_profile.json"
+
+
+
 class TitleStream(bexioStream):
     """Title stream."""
     name = "title"
