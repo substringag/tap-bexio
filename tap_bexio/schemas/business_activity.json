@@ -12,7 +12,7 @@
       "type": ["null", "boolean"]
     },
     "default_price_per_hour": {
-      "type": ["null", "number"]
+      "type": ["null", "string"]
     },
     "account_id": {
       "type": ["null", "integer"]
