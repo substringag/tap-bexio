@@ -10,6 +10,17 @@ from tap_bexio.client import bexioStream
 SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 
 
+class AccountingJournalStream(bexioStream):
+    """AccountingJournal stream."""
+    name = "accounting_journal"
+    path = "3.0/accounting/journal"  ##3-er API! there the wording is plural 
+    data_key = "name"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "accounting_journal.json"
+
+
 class CurrenciesStream(bexioStream):
     """Currencies stream."""
     name = "currencies"
