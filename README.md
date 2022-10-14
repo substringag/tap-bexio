@@ -23,6 +23,7 @@ Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
 * [ ] Accounting
     * [x] Accounts (accounts)
     * [x] Account Groups (account_groups)
+    * [x] Manual entries (accounting_journal)
 * [ ] Banking
 * [ ] Items & Products
 * [x] Projects & Time Tracking
@@ -40,7 +41,7 @@ Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
 
 ## Installation
 
-Set up the tap in your meltano.yml and add `TAP_BEXIO_AUTH_TOKEN` to your `.env` file
+Set up the tap in your meltano.yml and add `TAP_BEXIO_AUTH_TOKEN` to your `.env` file. Watch out, this is just a Singer tap for Meltano. You need a working meltano project to use this code.
 
 ```bash
 meltano install
