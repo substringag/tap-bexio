@@ -183,7 +183,7 @@ class OrderStream(bexioStream):
 
 class InvoicesStream(bexioStream):
     """Invoices stream."""
-    name = "kb_invoice"
+    name = "kb_invoices"
     path = "2.0/kb_invoice"
     data_key = "kb_invoice"
     primary_keys = ["id"]
