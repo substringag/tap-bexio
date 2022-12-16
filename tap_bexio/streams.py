@@ -181,8 +181,8 @@ class OrderStream(bexioStream):
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "kb_order.json"
 
-class InvoiceStream(bexioStream):
-    """Invoice stream."""
+class InvoicesStream(bexioStream):
+    """Invoices stream."""
     name = "kb_invoice"
     path = "2.0/kb_invoice"
     data_key = "kb_invoice"
@@ -190,6 +190,25 @@ class InvoiceStream(bexioStream):
     replication_method = "INCREMENTAL"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "kb_invoice.json"
+    def get_child_context(self, record: dict, context: Optional[dict]) -> dict:
+        """Return a context dictionary for child streams."""
+        return {
+            "invoice_id": record["id"],
+        }
+
+class InvoiceStream(bexioStream):
+    """Invoice stream."""
+    name = "kb_invoice"
+    path = "2.0/kb_invoice/{invoice_id}"
+    data_key = "kb_invoice"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "kb_invoice.json"
+    # EpicIssues streams should be invoked once per parent epic:
+    parent_stream_type = InvoicesStream
+    # Assume epics don't have `updated_at` incremented when issues are changed:
+    ignore_parent_replication_keys = True
 
 class AccountsStream(bexioStream):
     """Accounts stream."""
