@@ -190,11 +190,11 @@ class InvoicesStream(bexioStream):
     replication_method = "INCREMENTAL"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "kb_invoice.json"
-    # def get_child_context(self, record: dict, context: Optional[dict]) -> dict:
-    #     """Return a context dictionary for child streams."""
-    #     return {
-    #         "invoice_id": record["id"],
-    #     }
+    def get_child_context(self, record: dict, context: Optional[dict]) -> dict:
+        """Return a context dictionary for child streams."""
+        return {
+            "id": record["id"],
+        }
 
 class InvoiceStream(bexioStream):
     """Invoice stream."""
