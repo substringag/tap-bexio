@@ -1,129 +1,181 @@
 {
-    "type": "object",
-    "additionalProperties": false,
-    "properties": {
-      "id": {
-        "type": "integer"
-      },
-      "document_nr": {
-        "type": "string"
-      },
-      "title": {
-        "type": ["null", "string"]
-      },
-      "contact_id": {
-        "type": ["null", "integer"]
-      },
-      "contact_sub_id": {
-        "type": ["null", "integer"]
-      },
-      "user_id": {
-        "type": "integer"
-      },
-      "project_id": {
-        "type": ["null", "integer"]
-      },
-      "language_id": {
-        "type": "integer"
-      },
-      "bank_account_id": {
-        "type": "integer"
-      },
-      "currency_id": {
-        "type": "integer"
-      },
-      "payment_type_id": {
-        "type": "integer"
-      },
-      "header": {
-        "type": "string"
-      },
-      "footer": {
-        "type": "string"
-      },
-      "total_gross": {
-        "type": "string"
-      },
-      "total_net": {
-        "type": "string"
-      },
-      "total_taxes": {
-        "type": "string"
-      },
-      "total_received_payments": {
-        "type": "string"
-      },
-      "total_credit_vouchers": {
-        "type": "string"
-      },
-      "total_remaining_payments": {
-        "type": "string"
-      },
-      "total": {
-        "type": "string"
-      },
-      "total_rounding_difference": {
-        "type": "number"
-      },
-      "mwst_type": {
-        "type": "integer"
-      },
-      "mwst_is_net": {
-        "type": "boolean"
-      },
-      "show_position_taxes": {
-        "type": "boolean"
-      },
-      "is_valid_from": {
-        "type": "string",
-        "format": "date-time"
-      },
-      "is_valid_to": {
-        "type": "string",
-        "format": "date-time"
-      },
-      "contact_address": {
-        "type": "string"
-      },
-      "kb_item_status_id": {
-        "type": "integer"
-      },
-      "reference": {
-        "type": ["null", "string"]
-      },
-      "api_reference": {
-        "type": ["null", "string"]
-      },
-      "viewed_by_client_at": {
-        "type": ["null", "string"]
-      },
-      "updated_at": {
-        "type": "string",
-        "format": "date-time"
-      },
-      "esr_id": {
-        "type": "integer"
-      },
-      "qr_invoice_id": {
-        "type": "integer"
-      },
-      "template_slug": {
-        "type": ["null", "string"]
-      },
-      "taxs": {
-        "type": "array",
-        "properties": {
-            "percentage": {
-                "type": "string"
-            },
-            "value": {
-                "type": "string"
-            }
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "document_nr": {
+      "type": "string"
+    },
+    "title": {
+      "type": ["null", "string"]
+    },
+    "contact_id": {
+      "type": ["null", "integer"]
+    },
+    "contact_sub_id": {
+      "type": ["null", "integer"]
+    },
+    "user_id": {
+      "type": "integer"
+    },
+    "project_id": {
+      "type": ["null", "integer"]
+    },
+    "language_id": {
+      "type": "integer"
+    },
+    "bank_account_id": {
+      "type": "integer"
+    },
+    "currency_id": {
+      "type": "integer"
+    },
+    "payment_type_id": {
+      "type": "integer"
+    },
+    "header": {
+      "type": "string"
+    },
+    "footer": {
+      "type": "string"
+    },
+    "total_gross": {
+      "type": "string"
+    },
+    "total_net": {
+      "type": "string"
+    },
+    "total_taxes": {
+      "type": "string"
+    },
+    "total_received_payments": {
+      "type": "string"
+    },
+    "total_credit_vouchers": {
+      "type": "string"
+    },
+    "total_remaining_payments": {
+      "type": "string"
+    },
+    "total": {
+      "type": "string"
+    },
+    "total_rounding_difference": {
+      "type": "number"
+    },
+    "mwst_type": {
+      "type": "integer"
+    },
+    "mwst_is_net": {
+      "type": "boolean"
+    },
+    "show_position_taxes": {
+      "type": "boolean"
+    },
+    "is_valid_from": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "is_valid_to": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "contact_address": {
+      "type": "string"
+    },
+    "kb_item_status_id": {
+      "type": "integer"
+    },
+    "reference": {
+      "type": ["null", "string"]
+    },
+    "api_reference": {
+      "type": ["null", "string"]
+    },
+    "viewed_by_client_at": {
+      "type": ["null", "string"]
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "esr_id": {
+      "type": "integer"
+    },
+    "qr_invoice_id": {
+      "type": "integer"
+    },
+    "template_slug": {
+      "type": ["null", "string"]
+    },
+    "taxs": {
+      "type": "array",
+      "properties": {
+        "percentage": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
         }
-      },
-      "network_link": {
-        "type": ["null", "string"]
+      }
+    },
+    "network_link": {
+      "type": ["null", "string"]
+    },
+    "positions": {
+      "type": "array",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "unit_id": {
+          "type": "integer"
+        },
+        "account_id": {
+          "type": "integer"
+        },
+        "unit_name": {
+          "type": "string"
+        },
+        "tax_id": {
+          "type": "integer"
+        },
+        "tax_value": {
+          "type": "number"
+        },
+        "text": {
+          "type": "string"
+        },
+        "unit_price": {
+          "type": "number"
+        },
+        "discount_in_percent": {
+          "type": "number"
+        },
+        "position_total": {
+          "type": "number"
+        },
+        "pos": {
+          "type": "integer"
+        },
+        "internal_pos": {
+          "type": "integer"
+        },
+        "is_optional": {
+          "type": "boolean"
+        },
+        "type": {
+          "type": "string"
+        },
+        "parent_id": {
+          "type": ["null", "integer"]
+        }
       }
     }
   }
-  
+}
