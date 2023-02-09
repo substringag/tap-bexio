@@ -51,7 +51,8 @@
       "type": ["null", "string"]
     },
     "date": {
-      "type": ["null", "string"]
+      "type": ["null", "string"],
+      "format": "date-time"
     },
     "duration": {
       "type": ["null", "string"]

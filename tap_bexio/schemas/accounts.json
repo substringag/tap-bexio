@@ -11,8 +11,11 @@
       "name": {
         "type": "string"
       },
-      "account_group_id": {
+      "account_type": {
         "type": "integer"
+      },
+      "fibu_account_group_id": {
+        "type": ["null", "integer"]
       },
       "tax_id": {
         "type": ["null", "integer"]

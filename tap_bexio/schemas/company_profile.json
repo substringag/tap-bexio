@@ -1,39 +1,102 @@
 {
-    "type": "object",
-    "additionalProperties": false,
-    "properties": {
-      "id": { "type": "integer" },
-      "name": { "type": ["null", "string"] },
-      "address": { "type": ["null", "string"] },
-      "address_nr": { "type": ["null", "string"] },
-      "postcode": { "type": ["null", "string"] },
-      "city": { "type": ["null", "string"] },
-      "country_id": { "type": ["null", "string"] },
-      "legal_form": { "type": ["null", "string"] },
-      "country_name": { "type": ["null", "string"] },
-      "mail": { "type": ["null", "string"] },
-      "phone_fixed": { "type": ["null", "string"] },
-      "phone_mobile": { "type": ["null", "string"] },
-      "fax": { "type": ["null", "string"] },
-      "url": { "type": ["null", "string"] },
-      "skype_name": { "type": ["null", "string"] },
-      "facebook_name": { "type": ["null", "string"] },
-      "twitter_name": { "type": ["null", "string"] },
-      "description": { "type": ["null", "string"] },
-      "ust_id_nr": { "type": ["null", "string"] },
-      "mwst_nr": { "type": ["null", "string"] },
-      "trade_register_nr": { "type": ["null", "string"] },
-      "has_own_logo": { "type": "boolean" },
-      "is_public_profile": { "type": "boolean" },
-      "is_logo_public": { "type": "boolean" },
-      "is_address_public": { "type": "boolean" },
-      "is_phone_public": { "type": "boolean" },
-      "is_mobile_public": { "type": "boolean" },
-      "is_fax_public": { "type": "boolean" },
-      "is_mail_public": { "type": "boolean" },
-      "is_url_public": { "type": "boolean" },
-      "is_skype_public": { "type": "boolean" },
-      "logo_base64": { "type": ["null", "string"] }
-    }
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+      "id": {
+          "type": "integer"
+      },
+      "name": {
+          "type": "string"
+      },
+      "address": {
+          "type": ["null", "string"]
+      },
+      "address_nr": {
+          "type": ["null", "string"]
+      },
+      "postcode": {
+          "type": ["null", "string"]
+      },
+      "city": {
+          "type": ["null", "string"]
+      },
+      "country_id": {
+          "type": ["null", "string"]
+      },
+      "legal_form": {
+          "type": ["null", "string"]
+      },
+      "country_name": {
+          "type": ["null", "string"]
+      },
+      "mail": {
+          "type": ["null", "string"]
+      },
+      "phone_fixed": {
+          "type": ["null", "string"]
+      },
+      "phone_mobile": {
+          "type": ["null", "string"]
+      },
+      "fax": {
+          "type": ["null", "string"]
+      },
+      "url": {
+          "type": ["null", "string"]
+      },
+      "skype_name": {
+          "type": ["null", "string"]
+      },
+      "facebook_name": {
+          "type": ["null", "string"]
+      },
+      "twitter_name": {
+          "type": ["null", "string"]
+      },
+      "description": {
+          "type": ["null", "string"]
+      },
+      "ust_id_nr": {
+          "type": ["null", "string"]
+      },
+      "mwst_nr": {
+          "type": ["null", "string"]
+      },
+      "trade_register_nr": {
+          "type": ["null", "string"]
+      },
+      "has_own_logo": {
+          "type": "boolean"
+      },
+      "is_public_profile": {
+          "type": "boolean"
+      },
+      "is_logo_public": {
+          "type": "boolean"
+      },
+      "is_address_public": {
+          "type": "boolean"
+      },
+      "is_phone_public": {
+          "type": "boolean"
+      },
+      "is_mobile_public": {
+          "type": "boolean"
+      },
+      "is_fax_public": {
+          "type": "boolean"
+      },
+      "is_mail_public": {
+          "type": "boolean"
+      },
+      "is_url_public": {
+          "type": "boolean"
+      },
+      "is_skype_public": {
+          "type": "boolean"
+      },
+      "logo_base64": {
+          "type": ["null", "string"]
+      }
   }
-  
+}
