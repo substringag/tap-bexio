@@ -20,6 +20,8 @@ Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
     * [x] Orders (kb_order)
     * [x] Invoices (kb_invoice)
 * [ ] Purchase
+	* [x] Bills
+	* [x] Expenses
 * [ ] Accounting
     * [x] Accounts (accounts)
     * [x] Account Groups (account_groups)
