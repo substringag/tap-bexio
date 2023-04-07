@@ -1,0 +1,58 @@
+{
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "uuid"
+      },
+      "document_no": {
+        "type": "string"
+      },
+      "title": {
+        "type": ["null", "string"]
+      },
+      "status": {
+        "type": "string"
+      },
+      "firstname_suffix": {
+        "type": ["null", "string"]
+      },
+      "lastname_company": {
+        "type": "string"
+      },
+      "vendor": {
+        "type": "string"
+      },
+      "created_at": {
+        "type": "date-time"
+      },
+      "paid_on": {
+        "type": "date"
+      },
+      "booking_account_id": {
+        "type": ["null", "number"]
+      },
+      "net": {
+        "type": "number"
+      },
+      "gross": {
+        "type": "number"
+      },
+      "project_id": {
+        "type": "string"
+      },
+      "chargeable_contact_id": {
+        "type": ["null", "number"]
+      },
+      "transaction_id": {
+        "type": ["null", "string"]
+      },
+      "invoice_id": {
+        "type": ["null", "string"]
+      },
+      "attachment_ids": {
+        "type": "array"
+      }
+    }
+  }
+  

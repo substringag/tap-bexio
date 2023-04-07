@@ -6,14 +6,13 @@ from typing import Any, Dict, Optional, Union, List, Iterable
 from singer_sdk import typing as th  # JSON Schema typing helpers
 
 from tap_bexio.client import bexioStream
-
 SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 
 
 class AccountingJournalStream(bexioStream):
     """AccountingJournal stream."""
     name = "accounting_journal"
-    path = "3.0/accounting/journal"  ##3-er API! there the wording is plural 
+    path = "3.0/accounting/journal"  # 3-er API! there the wording is plural
     data_key = "name"
     primary_keys = ["id"]
     replication_method = "INCREMENTAL"
@@ -24,8 +23,8 @@ class AccountingJournalStream(bexioStream):
 class CurrenciesStream(bexioStream):
     """Currencies stream."""
     name = "currencies"
-    path = "3.0/currencies"  ##3-er API! there the wording is plural 
-    data_key = "name"
+    path = "3.0/currencies"  # 3-er API! there the wording is plural
+    data_key = "currencies"
     primary_keys = ["id"]
     replication_method = "INCREMENTAL"
     replication_key = "id"
@@ -54,7 +53,6 @@ class CompanyProfileStream(bexioStream):
     schema_filepath = SCHEMAS_DIR / "company_profile.json"
 
 
-
 class TitleStream(bexioStream):
     """Title stream."""
     name = "title"
@@ -64,7 +62,6 @@ class TitleStream(bexioStream):
     replication_method = "INCREMENTAL"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "title.json"
-
 
 
 class ContactGroupStream(bexioStream):
@@ -78,6 +75,8 @@ class ContactGroupStream(bexioStream):
     schema_filepath = SCHEMAS_DIR / "contact_group.json"
 
 # this is called "Contact Sectors" in the API Dokumentation, but "contact_branch" in the endpoint. https://docs.bexio.com/legacy/resources/contact_branch/
+
+
 class ContactBranchStream(bexioStream):
     """Contact Branch stream."""
     name = "contact_branch"
@@ -121,6 +120,7 @@ class BusinessActivityStream(bexioStream):
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "business_activity.json"
 
+
 class ProjectsStream(bexioStream):
     """Projects stream."""
     name = "projects"
@@ -130,6 +130,7 @@ class ProjectsStream(bexioStream):
     replication_method = "INCREMENTAL"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "pr_project.json"
+
 
 class ProjectStatesStream(bexioStream):
     """Projects states stream."""
@@ -141,6 +142,7 @@ class ProjectStatesStream(bexioStream):
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "pr_project_state.json"
 
+
 class ProjectTypesStream(bexioStream):
     """Project Types stream."""
     name = "project_types"
@@ -150,6 +152,7 @@ class ProjectTypesStream(bexioStream):
     replication_method = "INCREMENTAL"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "pr_project_type.json"
+
 
 class TimesheetsStream(bexioStream):
     """Timesheets stream."""
@@ -161,6 +164,7 @@ class TimesheetsStream(bexioStream):
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "timesheet.json"
 
+
 class OfferStream(bexioStream):
     """Offer stream."""
     name = "offer"
@@ -170,6 +174,7 @@ class OfferStream(bexioStream):
     replication_method = "INCREMENTAL"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "kb_offer.json"
+
 
 class OrderStream(bexioStream):
     """Order stream."""
@@ -181,6 +186,7 @@ class OrderStream(bexioStream):
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "kb_order.json"
 
+
 class InvoicesStream(bexioStream):
     """Invoices stream."""
     name = "kb_invoices"
@@ -190,25 +196,7 @@ class InvoicesStream(bexioStream):
     replication_method = "INCREMENTAL"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "kb_invoice.json"
-    def get_child_context(self, record: dict, context: Optional[dict]) -> dict:
-        """Return a context dictionary for child streams."""
-        return {
-            "id": record["id"],
-        }
 
-# class InvoiceStream(bexioStream):
-#     """Invoice stream."""
-#     name = "kb_invoice"
-#     path = "2.0/kb_invoice/{id}"
-#     data_key = "kb_invoice"
-#     primary_keys = ["id"]
-#     replication_method = "INCREMENTAL"
-#     replication_key = "id"
-#     schema_filepath = SCHEMAS_DIR / "kb_invoice.json"
-#     # EpicIssues streams should be invoked once per parent epic:
-#     parent_stream_type = InvoicesStream
-#     # Assume epics don't have `updated_at` incremented when issues are changed:
-#     ignore_parent_replication_keys = False
 
 class AccountsStream(bexioStream):
     """Accounts stream."""
@@ -220,6 +208,7 @@ class AccountsStream(bexioStream):
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "accounts.json"
 
+
 class AccountGroupsStream(bexioStream):
     """Account Groups stream."""
     name = "account_groups"
@@ -229,3 +218,29 @@ class AccountGroupsStream(bexioStream):
     replication_method = "INCREMENTAL"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "account_groups.json"
+
+
+class BillStream(bexioStream):
+    """Bill stream."""
+    name = "bills"
+    path = "4.0/purchase/bills"
+    data_key = "bills"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "bills.json"
+    records_jsonpath = "$.data[*]"
+    item_limit = 500
+
+
+class ExpensesStream(bexioStream):
+    """Expenses stream."""
+    name = "expenses"
+    path = "4.0/expenses"
+    data_key = "expenses"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "expenses.json"
+    records_jsonpath = "$.data[*]"
+    item_limit = 500

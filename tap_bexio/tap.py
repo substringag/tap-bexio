@@ -6,7 +6,6 @@ from singer_sdk import Tap, Stream
 from singer_sdk import typing as th  # JSON schema typing helpers
 
 from tap_bexio.streams import (
-    bexioStream,
     AccountingJournalStream,
     CurrenciesStream,
     SalutationStream,
@@ -21,36 +20,39 @@ from tap_bexio.streams import (
     OfferStream,
     OrderStream,
     InvoicesStream,
-    InvoiceStream,
     AccountsStream,
     AccountGroupsStream,
     ProjectTypesStream,
     ProjectStatesStream,
-    ProjectsStream
+    ProjectsStream,
+    BillStream,
+    ExpensesStream
 )
 
 STREAM_TYPES = [
+    AccountGroupsStream,
     AccountingJournalStream,
-    CurrenciesStream,
-    SalutationStream,
-    CompanyProfileStream,
-    TitleStream,
-    ContactGroupStream,
+    AccountsStream,
+    BillStream,
+    BusinessActivityStream,
+    CompanyProfileStream, 
     ContactBranchStream,
+    ContactGroupStream,
     ContactTypeStream,
     ContactStream,
-    BusinessActivityStream,
-    TimesheetsStream,
+    CurrenciesStream,
+    ExpensesStream,
+    InvoicesStream,
     OfferStream,
     OrderStream,
-    InvoicesStream,
-    InvoiceStream,
-    AccountsStream,
-    AccountGroupsStream,
+    ProjectsStream,
     ProjectTypesStream,
     ProjectStatesStream,
-    ProjectsStream
+    SalutationStream,
+    TitleStream,
+    TimesheetsStream
 ]
+
 
 class Tapbexio(Tap):
     """bexio tap class."""

@@ -1,0 +1,64 @@
+{
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "uuid"
+      },
+      "document_no": {
+        "type": "string"
+      },
+      "title": {
+        "type": ["null", "string"]
+      },
+      "parent_fibu_account_group_id": {
+        "type": ["null", "integer"]
+      },
+      "status": {
+        "type": "string"
+      },
+      "firstname_suffix": {
+        "type": ["null", "string"]
+      },
+      "lastname_company": {
+        "type": "string"
+      },
+      "vendor": {
+        "type": "string"
+      },
+      "created_at": {
+        "type": "date-time"
+      },
+      "vendor_ref": {
+        "type": ["null", "string"]
+      },
+      "pending_amount": {
+        "type": "number"
+      },
+      "currency_code": {
+        "type": "string"
+      },
+      "net": {
+        "type": ["null", "number"]
+      },
+      "gross": {
+        "type": ["null", "number"]
+      },
+      "bill_date": {
+        "type": "date"
+      },
+      "due_date": {
+        "type": "date"
+      },
+      "overdue": {
+        "type": "boolean"
+      },
+      "booking_account_ids": {
+        "type": "array"
+      },
+      "attachment_ids": {
+        "type": "array"
+      }
+    }
+  }
+  
