@@ -33,24 +33,24 @@ STREAM_TYPES = [
     AccountGroupsStream,
     AccountingJournalStream,
     AccountsStream,
-    # BillStream, 403
+    BillStream,
     BusinessActivityStream,
-    # CompanyProfileStream, 400
+    CompanyProfileStream,
     ContactBranchStream,
     ContactGroupStream,
     ContactTypeStream,
     ContactStream,
     CurrenciesStream,
-    # ExpensesStream, 403
+    ExpensesStream,
     InvoicesStream,
     OfferStream,
     OrderStream,
-    # ProjectsStream, 403
-    # ProjectTypesStream, 403
-    # ProjectStatesStream, 403
-    # SalutationStream, 400
+    ProjectsStream,
+    ProjectTypesStream,
+    ProjectStatesStream,
+    SalutationStream,
     TitleStream,
-    # TimesheetsStream 403
+    TimesheetsStream
 ]
 
 
