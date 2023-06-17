@@ -2,10 +2,7 @@
 
 `tap-bexio` is a Singer tap for bexio.
 
-> :warning: This is still a super early version with some spaghetti code, only a couple of data endpoints implemented and probably still a lot of bugs. Happy for people testing it and helping us move this Tap forward.
-
 Bexio API Documentation: https://docs.bexio.com/ and https://docs.bexio.com/legacy/
-
 
 Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
 
@@ -19,10 +16,10 @@ Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
     * [x] Quotes (kb_offer)
     * [x] Orders (kb_order)
     * [x] Invoices (kb_invoice)
-* [ ] Purchase
+* [x] Purchase
 	* [x] Bills
 	* [x] Expenses
-* [ ] Accounting
+* [x] Accounting
     * [x] Accounts (accounts)
     * [x] Account Groups (account_groups)
     * [x] Manual entries (accounting_journal)
