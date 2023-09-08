@@ -170,7 +170,7 @@ class bexioStream(RESTStream):
                     continue
                 yield transformed_record
         except MinorApiException as e:
-            logging.error("==> Skipped stream based on minor HTTP status code erro for REST API")
+            logging.error("==> Skipped stream based on minor HTTP status code error for REST API (code 400 - 403)")
 
 
 class MinorApiException(Exception):

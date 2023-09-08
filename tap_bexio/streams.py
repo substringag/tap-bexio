@@ -244,3 +244,45 @@ class ExpensesStream(bexioStream):
     schema_filepath = SCHEMAS_DIR / "expenses.json"
     records_jsonpath = "$.data[*]"
     item_limit = 500
+
+class LanguageStream(bexioStream):
+    """Language stream."""
+    name = "language"
+    path = "2.0/language"
+    data_key = "language"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "language.json"
+
+class CountryStream(bexioStream):
+    """Country stream."""
+    name = "country"
+    path = "2.0/country"
+    data_key = "country"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "country.json"
+
+class UnitStream(bexioStream):
+    """Units stream."""
+    name = "unit"
+    path = "2.0/unit"
+    data_key = "unit"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "unit.json"
+
+class PaymentTypeStream(bexioStream):
+    """Payment type stream."""
+    name = "payment_type"
+    path = "2.0/payment_type"
+    data_key = "payment_type"
+    primary_keys = ["id"]
+    replication_method = "INCREMENTAL"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "payment_type.json"
+
+
