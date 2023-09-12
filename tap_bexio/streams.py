@@ -87,7 +87,6 @@ class ContactBranchStream(bexioStream):
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "contact_branch.json"
 
-
 class ContactTypeStream(bexioStream):
     """Contact Type stream."""
     name = "contact_types"
@@ -97,7 +96,6 @@ class ContactTypeStream(bexioStream):
     replication_method = "INCREMENTAL"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "contact_type.json"
-
 
 class ContactStream(bexioStream):
     """Contact stream."""
