@@ -1,17 +1,37 @@
 {
-    "type": "object",
-    "additionalProperties": false,
-    "properties": {
-      "id": { "type": "integer" },
-      "ref_id": { "type": ["null", "integer"] },
-      "ref_uuid": { "type": ["null", "string"] },
-      "ref_class": { "type": ["null", "string"] },
-      "date": { "type": "string", "format": "date-time" },
-      "debit_account_id": { "type": "integer" },
-      "credit_account_id": { "type": "integer" },
-      "description": { "type": "string" },
-      "amount": { "type": "number" },      
-      "currency_id": { "type": "integer" }
-    }
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+      "id": {
+          "type": "integer"
+      },
+      "ref_id": {
+          "type": ["null", "integer"]
+      },
+      "ref_uuid": {
+          "type": ["null", "string"]
+      },
+      "ref_class": {
+          "type": ["null", "string"]
+      },
+      "date": {
+          "type": "string",
+          "format": "date-time"
+      },
+      "debit_account_id": {
+          "type": "integer"
+      },
+      "credit_account_id": {
+          "type": "integer"
+      },
+      "description": {
+          "type": "string"
+      },
+      "amount": {
+          "type": "number"
+      },
+      "currency_id": {
+          "type": "integer"
+      }
   }
-  
+}

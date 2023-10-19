@@ -1,12 +1,16 @@
 {
-    "type": "object",
-    "additionalProperties": false,
-    "properties": {
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+      "id": {
+          "type": "integer"
+      },
+      "name": {
+          "type": "string"
+      },
+      "round_factor": {
+          "type": "number"
+      }
 
-      "id": { "type": "integer" },
-      "name": { "type": "string" },
-      "round_factor": { "type": "number" }
-      
-    }
   }
-  
+}
