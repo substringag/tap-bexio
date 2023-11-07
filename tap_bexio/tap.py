@@ -30,7 +30,7 @@ from tap_bexio.streams import (
     LanguageStream,
     CountryStream,
     PaymentTypeStream,
-    UnitStream
+    UnitStream,
 )
 
 STREAM_TYPES = [
