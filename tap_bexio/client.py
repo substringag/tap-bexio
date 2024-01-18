@@ -21,7 +21,7 @@ class bexioStream(RESTStream):
     """bexio stream class."""
 
     url_base = "https://api.bexio.com/"
-    item_limit = 1000
+    item_limit = 499
 
     records_jsonpath = "$[*]"  # Or override `parse_response`.
     next_page_token_jsonpath = "[]"  # Or override `get_next_page_token`.
