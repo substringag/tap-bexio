@@ -43,7 +43,7 @@ class bexioStream(RESTStream):
         return headers
 
     def get_next_page_token(
-        self, response: requests.Response, previous_token: Optional[Any]
+            self, response: requests.Response, previous_token: Optional[Any]
     ) -> Optional[Any]:
         """Return a token for identifying next page or None if no more pages."""
 
@@ -80,16 +80,24 @@ class bexioStream(RESTStream):
             logging.warning("JSON decode error occured!")
 
     def get_url_params(
-        self, context: Optional[dict], next_page_token: Optional[Any]
+            self, context: Optional[dict], next_page_token: Optional[Any]
     ) -> Dict[str, Any]:
         """Return a dictionary of values to be used in URL parameterization."""
         params: dict = {}
-        if next_page_token:
-            params["offset"] = next_page_token
-            params["limit"] = self.item_limit
 
-            # Contains page if newer API used
-            params["page"] = next_page_token
+        offset = 0
+        if next_page_token:
+            offset = next_page_token
+
+        params["offset"] = offset
+        params["limit"] = self.item_limit
+
+        # Contains page if newer API used
+        params["page"] = offset
+
+        if not next_page_token:
+            params["offset"] = 0
+            params["limit"] = self.item_limit
 
         if self.replication_key:
             params["sort"] = "asc"
@@ -98,7 +106,7 @@ class bexioStream(RESTStream):
         return params
 
     def prepare_request_payload(
-        self, context: Optional[dict], next_page_token: Optional[Any]
+            self, context: Optional[dict], next_page_token: Optional[Any]
     ) -> Optional[dict]:
         """Prepare the data payload for the REST API request.
         By default, no payload will be sent (return None).
@@ -133,7 +141,7 @@ class bexioStream(RESTStream):
                 f"{response.reason} for path: {self.path}"
             )
             raise MinorApiException(msg)
-        
+
         if 404 <= response.status_code < 500:
             msg = (
                 f"{response.status_code} Client Error: "
