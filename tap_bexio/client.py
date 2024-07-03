@@ -55,8 +55,11 @@ class bexioStream(RESTStream):
 
             if isinstance(resp_dict, dict):
                 paging = resp_dict.get("paging")
+                logging.info(f"Paging: {paging}")
+
                 page = paging.get("page")
                 totalPage = paging.get("page_count")
+                logging.info(f"Fetched page: {page} of {totalPage}")
 
                 if page < totalPage:
                     if previous_token == None:
@@ -68,7 +71,8 @@ class bexioStream(RESTStream):
                 if previous_token == None:
                     previous_token = 0
 
-                if response.headers.get("content-length") == "2":
+                content_length = response.headers.get("content-length")
+                if content_length == "2":
                     next_page_token = None
                 else:
                     next_page_token = previous_token + self.item_limit
@@ -85,7 +89,7 @@ class bexioStream(RESTStream):
         """Return a dictionary of values to be used in URL parameterization."""
         params: dict = {}
 
-        offset = 0
+        offset = 1
         if next_page_token:
             offset = next_page_token
 
@@ -115,11 +119,13 @@ class bexioStream(RESTStream):
 
     def parse_response(self, response: requests.Response) -> Iterable[dict]:
         """Parse the response and return an iterator of result rows."""
+
         yield from extract_jsonpath(self.records_jsonpath, input=response.json())
 
     def post_process(self, row: dict, context: Optional[dict]) -> dict:
         """As needed, append or transform raw data to match expected structure."""
         # TODO: Delete this method if not needed.
+
         return row
 
     # REST error handling (400, 403)
@@ -140,6 +146,7 @@ class bexioStream(RESTStream):
                 f"{response.status_code} Client Error: "
                 f"{response.reason} for path: {self.path}"
             )
+            logging.error(response.json())
             raise MinorApiException(msg)
 
         if 404 <= response.status_code < 500:
@@ -178,7 +185,8 @@ class bexioStream(RESTStream):
                     continue
                 yield transformed_record
         except MinorApiException as e:
-            logging.error("==> Skipped stream based on minor HTTP status code erro for REST API")
+            logging.error(" ======> Skipped stream based on minor HTTP status code erro for REST API")
+            logging.error(e)
 
 
 class MinorApiException(Exception):
