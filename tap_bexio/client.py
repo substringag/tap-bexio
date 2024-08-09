@@ -1,18 +1,15 @@
 """REST client handling, including bexioStream base class."""
 
-import requests
-import logging
 import json
-
+import logging
 from pathlib import Path
-from typing import Any, Dict, Optional, Union, List, Iterable
+from typing import Any, Dict, Optional, Iterable
 
-from memoization import cached
-
-from singer_sdk.helpers.jsonpath import extract_jsonpath
-from singer_sdk.streams import RESTStream
+import requests
 from singer_sdk.authenticators import BearerTokenAuthenticator
 from singer_sdk.exceptions import FatalAPIError, RetriableAPIError
+from singer_sdk.helpers.jsonpath import extract_jsonpath
+from singer_sdk.streams import RESTStream
 
 SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 
@@ -21,7 +18,8 @@ class bexioStream(RESTStream):
     """bexio stream class."""
 
     url_base = "https://api.bexio.com/"
-    item_limit = 1000
+    item_limit = 500
+    new_paging_system = False
 
     records_jsonpath = "$[*]"  # Or override `parse_response`.
     next_page_token_jsonpath = "[]"  # Or override `get_next_page_token`.
@@ -43,78 +41,111 @@ class bexioStream(RESTStream):
         return headers
 
     def get_next_page_token(
-        self, response: requests.Response, previous_token: Optional[Any]
+            self, response: requests.Response, previous_token: Optional[Any]
     ) -> Optional[Any]:
         """Return a token for identifying next page or None if no more pages."""
 
-        # Version 1.0 - 3.0 have page information in header.
-        # Version >= 4.0 use page information in the response body.
+        # Version 1.0 - 2.0 give paging information in the headers. "Content-Length"==2 means no more data
+        # Version 3.0 have more paging information in the header: total-count, offset and limit
+        # Version >= 4.0 use page information in the response body: page, page_size, page_count and item_count
 
+        logging.debug(f"Previous token: {previous_token}")
+
+        next_page_token = {
+            "limit": self.item_limit
+        }
+
+        is_version_four = False
+        # check if the response is a JSON and has a paging object, if so, it's version 4 o the API
         try:
-            resp_dict = response.json()
+            response_json = response.json()
 
-            if isinstance(resp_dict, dict):
-                paging = resp_dict.get("paging")
-                page = paging.get("page")
-                totalPage = paging.get("page_count")
+            if "paging" in response_json:
+                logging.info(f"API Version >= 4.0")
+                next_page_token["version"] = 4
+                is_version_four = True
 
-                if page < totalPage:
-                    if previous_token == None:
-                        return 1
-                    return page + 1
+                paging = response_json.get("paging")
+                page = int(paging.get("page"))
+                total_page = int(paging.get("page_count"))
+
+                page_size = int(paging.get("page_size"))
+                next_page_token["limit"] = page_size
+
+                logging.debug(f"Last page: {page} | Page size: {page_size} | Total pages: {total_page} | Total items: {paging.get('item_count')}")
+
+                if page < total_page:
+                    next_page_token["page"] = page + 1
                 else:
                     return None
-            else:
-                if previous_token == None:
-                    previous_token = 0
-
-                if response.headers.get("content-length") == "2":
-                    next_page_token = None
-                else:
-                    next_page_token = previous_token + self.item_limit
-
-                return next_page_token
 
         except json.decoder.JSONDecodeError:
-            # TODO: handle this error better
-            logging.warning("JSON decode error occured!")
+            logging.error("JSON decode error occured!")
+            return None
 
-    def get_url_params(
-        self, context: Optional[dict], next_page_token: Optional[Any]
-    ) -> Dict[str, Any]:
+        if not is_version_four:
+            content_length = response.headers.get("content-length")
+            total_count = response.headers.get("x-total-count")
+
+            if total_count is None:
+                logging.info(f"API Version 1.0 - 2.0")
+                next_page_token["version"] = 2
+
+                if content_length == "2":
+                    return None  # No more data available
+
+                if previous_token is None:
+                    offset = 0
+                else:
+                    offset = previous_token.get("offset")
+
+                next_page_token["offset"] = offset + self.item_limit
+
+            else:
+                logging.info(f"API Version 3.0")
+                next_page_token["version"] = 3
+
+                offset = int(response.headers.get("x-offset"))
+                limit = int(response.headers.get("x-limit"))
+
+                if offset is not None and limit is not None and total_count is not None:
+                    if offset < int(total_count):
+                        next_page_token["offset"] = offset + limit
+                    else:
+                        return None
+                else:
+                    return None
+
+        return next_page_token
+
+    def get_url_params(self, context: Optional[dict], next_page_token: Optional[Any]) -> Dict[str, Any]:
         """Return a dictionary of values to be used in URL parameterization."""
         params: dict = {}
+
         if next_page_token:
-            params["offset"] = next_page_token
+            logging.debug(f"Next page token: {next_page_token}")
+
+            params["limit"] = next_page_token.get("limit") or self.item_limit
+            version = next_page_token.get("version")
+
+            if version == 2:
+                params["offset"] = next_page_token.get("offset")
+
+            elif version == 3:
+                params["offset"] = next_page_token.get("offset")
+
+            elif version == 4:
+                params["page"] = next_page_token.get("page")
+                params["limit"] = next_page_token.get("limit")
+        else:
+            params["page"] = 1
+            params["offset"] = 0
             params["limit"] = self.item_limit
 
-            # Contains page if newer API used
-            params["page"] = next_page_token
-
-        if self.replication_key:
-            params["sort"] = "asc"
-            params["order_by"] = self.replication_key
+        logging.warning(f"URL params: {params}")
 
         return params
 
-    def prepare_request_payload(
-        self, context: Optional[dict], next_page_token: Optional[Any]
-    ) -> Optional[dict]:
-        """Prepare the data payload for the REST API request.
-        By default, no payload will be sent (return None).
-        """
-        return None
-
-    def parse_response(self, response: requests.Response) -> Iterable[dict]:
-        """Parse the response and return an iterator of result rows."""
-        yield from extract_jsonpath(self.records_jsonpath, input=response.json())
-
-    def post_process(self, row: dict, context: Optional[dict]) -> dict:
-        """As needed, append or transform raw data to match expected structure."""
-        # TODO: Delete this method if not needed.
-        return row
-
-    # REST error handling (400, 403)
     def validate_response(self, response: requests.Response) -> None:
         """Validate HTTP response.
 
@@ -132,8 +163,9 @@ class bexioStream(RESTStream):
                 f"{response.status_code} Client Error: "
                 f"{response.reason} for path: {self.path}"
             )
+            logging.error(response.json())
             raise MinorApiException(msg)
-        
+
         if 404 <= response.status_code < 500:
             msg = (
                 f"{response.status_code} Client Error: "
@@ -147,7 +179,6 @@ class bexioStream(RESTStream):
                 f"{response.reason} for path: {self.path}"
             )
             raise RetriableAPIError(msg)
-
 
     def get_records(self, context: Optional[dict]) -> Iterable[Dict[str, Any]]:
         """Return a generator of row-type dictionary objects.
@@ -170,7 +201,8 @@ class bexioStream(RESTStream):
                     continue
                 yield transformed_record
         except MinorApiException as e:
-            logging.error("==> Skipped stream based on minor HTTP status code erro for REST API")
+            logging.error(" ======> Skipped stream based on minor HTTP status code erro for REST API")
+            logging.error(e)
 
 
 class MinorApiException(Exception):
