@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "name_short": {
+      "type": "string"
+    },
+    "iso3166_alpha2": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "iso_639_1": {
+      "type": "string"
+    }
+  }
+}

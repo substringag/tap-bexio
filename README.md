@@ -29,13 +29,13 @@ Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
 * [ ] Files
 * [ ] Other
     * [ ] Company Profile
-    * [ ] Countries
-    * [ ] Languages
+    * [x] Countries
+    * [x] Languages
     * [ ] Notes
-    * [ ] Payment Types
+    * [x] Payment Types
     * [ ] Permissions
     * [ ] Tasks
-    * [ ] Units
+    * [x] Units
     * [ ] User Management
 
 ## Installation
