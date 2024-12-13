@@ -15,7 +15,7 @@ class AccountingJournalStream(bexioStream):
     path = "3.0/accounting/journal"  # 3-er API! there the wording is plural
     data_key = "name"
     primary_keys = ["id"]
-    replication_method = "INCREMENTAL"
+    replication_method: "FULL_TABLE"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "accounting_journal.json"
 
@@ -26,7 +26,7 @@ class CurrenciesStream(bexioStream):
     path = "3.0/currencies"  # 3-er API! there the wording is plural
     data_key = "currencies"
     primary_keys = ["id"]
-    replication_method = "INCREMENTAL"
+    replication_method: "FULL_TABLE"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "currencies.json"
 
@@ -37,7 +37,7 @@ class SalutationStream(bexioStream):
     path = "2.0/salutation"
     data_key = "salutation"
     primary_keys = ["id"]
-    replication_method = "INCREMENTAL"
+    replication_method: "FULL_TABLE"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "salutation.json"
 
@@ -48,7 +48,7 @@ class CompanyProfileStream(bexioStream):
     path = "2.0/company_profile"
     data_key = "company_profile"
     primary_keys = ["id"]
-    replication_method = "INCREMENTAL"
+    replication_method: "FULL_TABLE"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "company_profile.json"
 
@@ -59,7 +59,7 @@ class TitleStream(bexioStream):
     path = "2.0/title"
     data_key = "title"
     primary_keys = ["id"]
-    replication_method = "INCREMENTAL"
+    replication_method: "FULL_TABLE"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "title.json"
 
@@ -70,7 +70,7 @@ class ContactGroupStream(bexioStream):
     path = "2.0/contact_group"
     data_key = "contact_group"
     primary_keys = ["id"]
-    replication_method = "INCREMENTAL"
+    replication_method: "FULL_TABLE"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "contact_group.json"
 
@@ -83,10 +83,9 @@ class ContactBranchStream(bexioStream):
     path = "2.0/contact_branch"
     data_key = "contact_branch"
     primary_keys = ["id"]
-    replication_method = "INCREMENTAL"
+    replication_method: "FULL_TABLE"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "contact_branch.json"
-
 
 class ContactTypeStream(bexioStream):
     """Contact Type stream."""
@@ -94,10 +93,9 @@ class ContactTypeStream(bexioStream):
     path = "2.0/contact_type"
     data_key = "contact_type"
     primary_keys = ["id"]
-    replication_method = "INCREMENTAL"
+    replication_method: "FULL_TABLE"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "contact_type.json"
-
 
 class ContactStream(bexioStream):
     """Contact stream."""
@@ -105,7 +103,7 @@ class ContactStream(bexioStream):
     path = "2.0/contact"
     data_key = "contact"
     primary_keys = ["id"]
-    replication_method = "INCREMENTAL"
+    replication_method: "FULL_TABLE"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "contact.json"
 
@@ -116,7 +114,7 @@ class BusinessActivityStream(bexioStream):
     path = "2.0/client_service"
     data_key = "business_activity"
     primary_keys = ["id"]
-    replication_method = "INCREMENTAL"
+    replication_method: "FULL_TABLE"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "business_activity.json"
 
@@ -127,7 +125,7 @@ class ProjectsStream(bexioStream):
     path = "2.0/pr_project"
     data_key = "project"
     primary_keys = ["id"]
-    replication_method = "INCREMENTAL"
+    replication_method: "FULL_TABLE"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "pr_project.json"
 
@@ -138,7 +136,7 @@ class ProjectStatesStream(bexioStream):
     path = "2.0/pr_project_state"
     data_key = "project_state"
     primary_keys = ["id"]
-    replication_method = "INCREMENTAL"
+    replication_method: "FULL_TABLE"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "pr_project_state.json"
 
@@ -149,7 +147,7 @@ class ProjectTypesStream(bexioStream):
     path = "2.0/pr_project_type"
     data_key = "project_type"
     primary_keys = ["id"]
-    replication_method = "INCREMENTAL"
+    replication_method: "FULL_TABLE"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "pr_project_type.json"
 
@@ -160,7 +158,7 @@ class TimesheetsStream(bexioStream):
     path = "2.0/timesheet"
     data_key = "timesheet"
     primary_keys = ["id"]
-    replication_method = "INCREMENTAL"
+    replication_method: "FULL_TABLE"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "timesheet.json"
 
@@ -171,7 +169,7 @@ class OfferStream(bexioStream):
     path = "2.0/kb_offer"
     data_key = "offer "
     primary_keys = ["id"]
-    replication_method = "INCREMENTAL"
+    replication_method: "FULL_TABLE"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "kb_offer.json"
 
@@ -182,7 +180,7 @@ class OrderStream(bexioStream):
     path = "2.0/kb_order"
     data_key = "order "
     primary_keys = ["id"]
-    replication_method = "INCREMENTAL"
+    replication_method: "FULL_TABLE"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "kb_order.json"
 
@@ -193,7 +191,7 @@ class InvoicesStream(bexioStream):
     path = "2.0/kb_invoice"
     data_key = "kb_invoices"
     primary_keys = ["id"]
-    replication_method = "INCREMENTAL"
+    replication_method: "FULL_TABLE"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "kb_invoice.json"
 
@@ -204,7 +202,7 @@ class AccountsStream(bexioStream):
     path = "2.0/accounts"
     data_key = "accounts"
     primary_keys = ["id"]
-    replication_method = "INCREMENTAL"
+    replication_method: "FULL_TABLE"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "accounts.json"
 
@@ -215,7 +213,7 @@ class AccountGroupsStream(bexioStream):
     path = "2.0/account_groups"
     data_key = "account_groups"
     primary_keys = ["id"]
-    replication_method = "INCREMENTAL"
+    replication_method: "FULL_TABLE"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "account_groups.json"
 
@@ -226,8 +224,7 @@ class BillStream(bexioStream):
     path = "4.0/purchase/bills"
     data_key = "bills"
     primary_keys = ["id"]
-    replication_method = "INCREMENTAL"
-    replication_key = "id"
+    replication_method: "FULL_TABLE"
     schema_filepath = SCHEMAS_DIR / "bills.json"
     records_jsonpath = "$.data[*]"
     item_limit = 500
@@ -239,8 +236,50 @@ class ExpensesStream(bexioStream):
     path = "4.0/expenses"
     data_key = "expenses"
     primary_keys = ["id"]
-    replication_method = "INCREMENTAL"
+    replication_method: "FULL_TABLE"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "expenses.json"
     records_jsonpath = "$.data[*]"
     item_limit = 500
+
+class LanguageStream(bexioStream):
+    """Language stream."""
+    name = "language"
+    path = "2.0/language"
+    data_key = "language"
+    primary_keys = ["id"]
+    replication_method: "FULL_TABLE"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "language.json"
+
+class CountryStream(bexioStream):
+    """Country stream."""
+    name = "country"
+    path = "2.0/country"
+    data_key = "country"
+    primary_keys = ["id"]
+    replication_method: "FULL_TABLE"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "country.json"
+
+class UnitStream(bexioStream):
+    """Units stream."""
+    name = "unit"
+    path = "2.0/unit"
+    data_key = "unit"
+    primary_keys = ["id"]
+    replication_method: "FULL_TABLE"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "unit.json"
+
+class PaymentTypeStream(bexioStream):
+    """Payment type stream."""
+    name = "payment_type"
+    path = "2.0/payment_type"
+    data_key = "payment_type"
+    primary_keys = ["id"]
+    replication_method: "FULL_TABLE"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "payment_type.json"
+
+
