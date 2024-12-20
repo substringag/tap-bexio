@@ -1,0 +1,58 @@
+{
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "uuid"
+      },
+      "name": {
+        "type": "string"
+      },
+      "owner": {
+        "type": "string"
+      },
+      "owner_address": {
+        "type": "string"
+      },
+      "owner_zip": {
+        "type": "integer"
+      },
+      "owner_city": {
+        "type": "string"
+      },
+      "bc_nr": {
+        "type": "integer"
+      },
+      "bank_name": {
+        "type": "string"
+      },
+      "bank_nr": {
+        "type": "string"
+      },
+      "bank_account_nr": {
+        "type": "string"
+      },
+      "iban_nr": {
+        "type": "string"
+      },
+      "currency_id": {
+        "type": "integer"
+      },
+      "account_id": {
+        "type": "integer"
+      },
+      "remarks": {
+        "type": "string"
+      },
+      "invoice_mode": {
+        "type": "string"
+      },
+      "qr_invoice_iban": {
+        "type": "string"
+      },
+      "type": {
+        "type": "string"
+      }
+    }
+  }
+  
