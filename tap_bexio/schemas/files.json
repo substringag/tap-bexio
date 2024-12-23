@@ -1,0 +1,47 @@
+{
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "uuid": {
+        "type": "uuid"
+      },
+      "name": {
+        "type": "string"
+      },
+      "size_in_bytes": {
+        "type": "integer"
+      },
+      "extension": {
+        "type": "string"
+      },
+      "mime_type": {
+        "type": "string"
+      },
+      "uploader_email": {
+        "type": "string"
+      },
+      "user_id": {
+        "type": "integer"
+      },
+      "is_archived": {
+        "type": "boolean"
+      },
+      "source_id": {
+        "type": "integer"
+      },
+      "source_type": {
+        "type": "string"
+      },
+      "is_referenced": {
+        "type": "boolean"
+      },
+      "created_at": {
+          "type": "string",
+          "format": "date-time"
+      }
+    }
+  }
+  
