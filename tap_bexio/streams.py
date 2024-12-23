@@ -321,3 +321,13 @@ class PayrollEmployeesStream(bexioStream):
     replication_method: "FULL_TABLE"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "payroll_employees.json"
+
+class UsersStream(bexioStream):
+    """Bank payments stream."""
+    name = "users"
+    path = "3.0/users"
+    data_key = "users"
+    primary_keys = ["id"]
+    replication_method: "FULL_TABLE"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "user.json"
