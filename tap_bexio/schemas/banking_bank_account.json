@@ -3,7 +3,7 @@
     "additionalProperties": false,
     "properties": {
       "id": {
-        "type": "uuid"
+        "type": "integer"
       },
       "name": {
         "type": "string"

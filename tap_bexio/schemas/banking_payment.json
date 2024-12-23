@@ -1,0 +1,89 @@
+{
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "uuid": {
+        "type": "uuid"
+      },
+      "type": {
+        "type": "string"
+      },
+
+      "bank_account": {
+        "type": "array",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "iban": {
+            "type": "string"
+          }
+        }
+      },
+
+      "payment": {
+        "type": "array",
+        "instructed_amount": {
+          "currency": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "double"
+          }
+        },
+        "recipient": {
+          "name": {
+            "type": "string"
+          },
+          "street": {
+            "type": "string"
+          },
+          "zip": {
+            "type": "integer"
+          },
+          "city": {
+            "type": "string"
+          },
+          "country_code": {
+            "type": "string"
+          },
+          "house_number": {
+            "type": "integer"
+          }
+        },
+        "iban": {
+          "type": "string"
+        },
+        "execution_date": {
+          "type": "string"
+        },
+        "is_salary_payment": {
+          "type": "boolean"
+        },
+        "is_editing_restricted": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": ["null", "string"]
+        },
+        "allowance_type": {
+          "type": ["null", "string"]
+        }
+      },
+
+      "instruction_id": {
+        "type": "string"
+      },
+      "status": {
+        "type": "string"
+      },
+      "created_at": {
+          "type": "string",
+          "format": "date-time"
+      }
+    }
+  }
+  

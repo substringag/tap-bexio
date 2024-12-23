@@ -292,3 +292,13 @@ class BankAccountsStream(bexioStream):
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "banking_bank_account.json"
 
+class BankPaymentsStream(bexioStream):
+    """Bank payments stream."""
+    name = "bank_payments"
+    path = "3.0/banking/payments"
+    data_key = "bank_payments"
+    primary_keys = ["id"]
+    replication_method: "FULL_TABLE"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "banking_payment.json"
+
