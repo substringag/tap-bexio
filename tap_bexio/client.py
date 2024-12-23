@@ -18,12 +18,8 @@ class bexioStream(RESTStream):
     """bexio stream class."""
 
     url_base = "https://api.bexio.com/"
-<<<<<<< HEAD
     item_limit = 500
     new_paging_system = False
-=======
-    item_limit = 499
->>>>>>> dev
 
     records_jsonpath = "$[*]"  # Or override `parse_response`.
     next_page_token_jsonpath = "[]"  # Or override `get_next_page_token`.
@@ -205,12 +201,8 @@ class bexioStream(RESTStream):
                     continue
                 yield transformed_record
         except MinorApiException as e:
-<<<<<<< HEAD
             logging.error(" ======> Skipped stream based on minor HTTP status code erro for REST API")
             logging.error(e)
-=======
-            logging.error("==> Skipped stream based on minor HTTP status code error for REST API (code 400 - 403)")
->>>>>>> dev
 
 
 class MinorApiException(Exception):
