@@ -13,7 +13,7 @@
       },
 
       "bank_account": {
-        "type": "array",
+        "type": "object",
         "properties": {
           "id": {
             "type": "integer"
@@ -25,7 +25,7 @@
       },
 
       "payment": {
-        "type": "array",
+        "type": "object",
         "instructed_amount": {
           "currency": {
             "type": "string"

@@ -1,0 +1,97 @@
+{
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "data": {
+        "type": "array",
+        "properties": {
+          "id": {
+            "type": "uuid"
+          },
+          "first_name": {
+            "type": "string"
+          },
+          "last_name": {
+            "type": "string"
+          },
+          "date_of_birth": {
+            "type": "string"
+          },
+          "ahv_number": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "nationality": {
+            "type": "string"
+          },
+          "stay_permit_category": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string"
+          },
+          "marital_status": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone_number": {
+            "type": "string"
+          },
+          "hours_per_week": {
+            "type": "integer"
+          },
+          "employment_level": {
+            "type": "integer"
+          },
+          "annual_vacation_days_total": {
+            "type": "integer"
+          },
+
+          "address": {
+            "type": "object",
+            "properties": {
+              "complementary_line": {
+                "type": "string"
+              },
+              "street": {
+                "type": "string"
+              },
+              "postbox": {
+                "type": "string"
+              },
+              "locality": {
+                "type": "string"
+              },
+              "zip_code": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "canton": {
+                "type": "string"
+              },
+              "municipality_id": {
+                "type": "string"
+              }
+            }
+          },
+
+          "personal_number": {
+            "type": "integer"
+          },
+          "iban": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
+  
