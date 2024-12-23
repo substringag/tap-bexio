@@ -39,7 +39,7 @@ Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
     * [ ] Permissions
     * [ ] Tasks
     * [x] Units
-    * [ ] User Management
+    * [x] User Management
 
 ## Installation
 

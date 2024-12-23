@@ -331,3 +331,13 @@ class UsersStream(bexioStream):
     replication_method: "FULL_TABLE"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "user.json"
+
+class FictionalUsersStream(bexioStream):
+    """Bank payments stream."""
+    name = "fictional_users"
+    path = "3.0/fictional_users"
+    data_key = "fictional_users"
+    primary_keys = ["id"]
+    replication_method: "FULL_TABLE"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "fictional_user.json"
