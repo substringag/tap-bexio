@@ -361,3 +361,13 @@ class TasksStream(bexioStream):
     replication_method: "FULL_TABLE"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "tasks.json"
+
+class TaskPrioritiesStream(bexioStream):
+    """Task priorities stream."""
+    name = "task_priorities"
+    path = "2.0/todo_priority"
+    data_key = "task_priorities"
+    primary_keys = ["id"]
+    replication_method: "FULL_TABLE"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "task_priority.json"
