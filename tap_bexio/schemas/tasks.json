@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+      "id": {
+          "type": "integer"
+      },
+      "user_id": {
+          "type": "integer"
+      },
+      "finish_date": {
+          "type": "string"
+      },
+      "subject": {
+          "type": "string"
+      },
+      "place": {
+          "type": "integer"
+      },
+      "info": {
+          "type": "string"
+      },
+      "sub_contact_id": {
+          "type": "integer"
+      },
+      "project_id": {
+          "type": ["null", "integer"]
+      },
+      "entry_id": {
+          "type": ["null", "integer"]
+      },
+      "module_id": {
+          "type": ["null", "integer"]
+      },
+      "todo_status_id": {
+          "type": "integer"
+      },
+      "todo_priority_id": {
+          "type": ["null", "integer"]
+      },
+      "has_reminder": {
+          "type": "boolean"
+      },
+      "remember_type_id": {
+          "type": ["null", "integer"]
+      },
+      "remember_time_id": {
+          "type": ["null", "integer"]
+      },
+      "communication_kind_id": {
+          "type": ["null", "integer"]
+      }
+  }
+}

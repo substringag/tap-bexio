@@ -38,6 +38,7 @@ from tap_bexio.streams import (
     UsersStream,
     FictionalUsersStream,
     NotesStream,
+    TasksStream,
 )
 
 STREAM_TYPES = [
@@ -73,6 +74,7 @@ STREAM_TYPES = [
     UsersStream,
     FictionalUsersStream,
     NotesStream,
+    TasksStream,
 ]
 
 

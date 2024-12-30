@@ -351,3 +351,13 @@ class NotesStream(bexioStream):
     replication_method: "FULL_TABLE"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "notes.json"
+
+class TasksStream(bexioStream):
+    """Notes stream."""
+    name = "tasks"
+    path = "2.0/task"
+    data_key = "tasks"
+    primary_keys = ["id"]
+    replication_method: "FULL_TABLE"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "tasks.json"
