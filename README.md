@@ -31,7 +31,7 @@ Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
     * [x] Company Profile
     * [x] Countries
     * [x] Languages
-    * [ ] Notes
+    * [x] Notes
     * [x] Payment Types
     * [ ] Permissions
     * [ ] Tasks
