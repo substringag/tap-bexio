@@ -292,6 +292,56 @@ class BankAccountsStream(bexioStream):
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "banking_bank_account.json"
 
+class BankPaymentsStream(bexioStream):
+    """Bank payments stream."""
+    name = "bank_payments"
+    path = "3.0/banking/payments"
+    data_key = "bank_payments"
+    primary_keys = ["id"]
+    replication_method: "FULL_TABLE"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "banking_payment.json"
+
+class FilesStream(bexioStream):
+    """Bank payments stream."""
+    name = "files"
+    path = "3.0/files"
+    data_key = "files"
+    primary_keys = ["id"]
+    replication_method: "FULL_TABLE"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "files.json"
+
+class PayrollEmployeesStream(bexioStream):
+    """Bank payments stream."""
+    name = "payroll_employees"
+    path = "4.0/payroll/employees"
+    data_key = "payroll_employees"
+    primary_keys = ["id"]
+    replication_method: "FULL_TABLE"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "payroll_employees.json"
+
+class UsersStream(bexioStream):
+    """Bank payments stream."""
+    name = "users"
+    path = "3.0/users"
+    data_key = "users"
+    primary_keys = ["id"]
+    replication_method: "FULL_TABLE"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "user.json"
+
+class FictionalUsersStream(bexioStream):
+    """Bank payments stream."""
+    name = "fictional_users"
+    path = "3.0/fictional_users"
+    data_key = "fictional_users"
+    primary_keys = ["id"]
+    replication_method: "FULL_TABLE"
+    replication_key = "id"
+    schema_filepath = SCHEMAS_DIR / "fictional_user.json"
+
 class NotesStream(bexioStream):
     """Notes stream."""
     name = "notes"
@@ -301,4 +351,3 @@ class NotesStream(bexioStream):
     replication_method: "FULL_TABLE"
     replication_key = "id"
     schema_filepath = SCHEMAS_DIR / "notes.json"
-

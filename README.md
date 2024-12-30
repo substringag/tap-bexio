@@ -23,10 +23,13 @@ Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
     * [x] Accounts (accounts)
     * [x] Account Groups (account_groups)
     * [x] Manual entries (accounting_journal)
-* [ ] Banking
+* [x] Banking
 * [ ] Items & Products
 * [x] Projects & Time Tracking
-* [ ] Files
+* [x] Files
+* [ ] Payroll
+  * [x] Employees
+  * [ ] Absences
 * [ ] Other
     * [x] Company Profile
     * [x] Countries
@@ -36,7 +39,7 @@ Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
     * [ ] Permissions
     * [ ] Tasks
     * [x] Units
-    * [ ] User Management
+    * [x] User Management
 
 ## Installation
 
