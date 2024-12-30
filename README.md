@@ -28,7 +28,7 @@ Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
 * [x] Projects & Time Tracking
 * [ ] Files
 * [ ] Other
-    * [ ] Company Profile
+    * [x] Company Profile
     * [x] Countries
     * [x] Languages
     * [ ] Notes
