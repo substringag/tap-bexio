@@ -32,6 +32,7 @@ from tap_bexio.streams import (
     PaymentTypeStream,
     UnitStream,
     BankAccountsStream,
+    NotesStream,
 )
 
 STREAM_TYPES = [
@@ -61,6 +62,7 @@ STREAM_TYPES = [
     PaymentTypeStream,
     UnitStream,
     BankAccountsStream,
+    NotesStream,
 ]
 
 

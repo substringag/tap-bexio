@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+      "id": {
+          "type": "integer"
+      },
+      "user_id": {
+          "type": "integer"
+      },
+      "event_start": {
+          "type": "string"
+      },
+      "subject": {
+          "type": "string"
+      },
+      "info": {
+          "type": "string"
+      },
+      "contact_id": {
+          "type": "integer"
+      },
+      "project_id": {
+          "type": ["null", "integer"]
+      },
+      "entry_id": {
+          "type": ["null", "integer"]
+      },
+      "module_id": {
+          "type": ["null", "integer"]
+      }
+  }
+}
