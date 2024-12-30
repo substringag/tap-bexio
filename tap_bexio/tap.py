@@ -40,6 +40,7 @@ from tap_bexio.streams import (
     NotesStream,
     TasksStream,
     TaskPrioritiesStream,
+    TaskStatusStream,
 )
 
 STREAM_TYPES = [
@@ -77,6 +78,7 @@ STREAM_TYPES = [
     NotesStream,
     TasksStream,
     TaskPrioritiesStream,
+    TaskStatusStream,
 ]
 
 
